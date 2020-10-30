@@ -3,7 +3,17 @@ from django.http import HttpResponse
 from .models import *
 
 def home(request):
-    return render(request, 'accounts/dashboard.html')
+    customers = Customer.objects.all()
+    orders = Order.objects.all()
+
+    total_customers = customers.count()
+
+    total_orders = orders.count()
+    delivered = orders.filter(status='Delivered').count()
+    pending = orders.filter(status='Pending').count()
+
+    context = {'customers': customers, 'orders': orders, 'order_count': total_orders, 'orders_delivered':delivered, 'orders_pending':pending}
+    return render(request, 'accounts/dashboard.html',  context)
 
 def products(request):
     products = Product.objects.all()
@@ -11,4 +21,5 @@ def products(request):
     return render(request, 'accounts/products.html', {'products': products})
 
 def customers(request):
-    return render(request, 'accounts/customers.html')
+    customers = Customer.objects.all()
+    return render(request, 'accounts/customers.html', {'customers': customer_list})
