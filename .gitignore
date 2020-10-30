@@ -1,3 +1,7 @@
 __pychache__
 *.env
 venv/
+crm/__pycache__/__init__.cpython-38.pyc
+crm/__pycache__/settings.cpython-38.pyc
+crm/__pycache__/urls.cpython-38.pyc
+crm/__pycache__/wsgi.cpython-38.pyc
