@@ -23,3 +23,4 @@ def products(request):
 def customers(request):
     customers = Customer.objects.all()
     return render(request, 'accounts/customers.html', {'customers': customer_list})
+    
