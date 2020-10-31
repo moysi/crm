@@ -5,7 +5,7 @@ appname = "accounts"
 
 # Create your views here.
 urlpatterns = [
-    path('', views.home),
+    path('', views.home, name='dashboard'),
     path('products/', views.products, name='products'),
-    path('customers/', views.customers, name='customers'),
+    path('customers/<str:primk>/', views.customers, name='customers'),
 ]

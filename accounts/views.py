@@ -20,7 +20,12 @@ def products(request):
     
     return render(request, 'accounts/products.html', {'products': products})
 
-def customers(request):
-    customers = Customer.objects.all()
-    return render(request, 'accounts/customers.html', {'customers': customer_list})
+def customers(request, primk):
+    customer = Customer.objects.get(id=primk)
+
+    orders = customer.order_set.all()
+    orders_count = orders.count()
+    
+    context = {'customer': customer, 'orders': orders, 'order_count':orders_count}
+    return render(request, 'accounts/customers.html', context)
     

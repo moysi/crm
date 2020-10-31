@@ -1,4 +1,4 @@
-__pychache__
+*/__pychache__
 *.env
 venv/
 crm/__pycache__/__init__.cpython-38.pyc
@@ -10,3 +10,5 @@ accounts/__pycache__/admin.cpython-38.pyc
 accounts/__pycache__/models.cpython-38.pyc
 accounts/__pycache__/urls.cpython-38.pyc
 accounts/__pycache__/views.cpython-38.pyc
+accounts/migrations/__pycache__/0006_auto_20201031_0351.cpython-38.pyc
+accounts/migrations/__pycache__/0007_auto_20201031_0352.cpython-38.pyc
