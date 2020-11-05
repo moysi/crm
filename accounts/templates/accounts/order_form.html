@@ -7,8 +7,14 @@
         <div class="card card-body">
             <form action="" method="POST">
                 {% csrf_token %}
-                {{form}}
-                <input type="submit" name  ="Submit">
+                <!-- Fix missing form management data error  -->
+                {{ formset.management_form }}
+                <!-- Dispaly forms for order input -->
+                {% for form in formset %}
+                    {{form}}
+                    <hr>
+                {% endfor %}
+                <button type="submit" name  ="Submit">Submit</button>   
             </form>
         </div>
     </div>
