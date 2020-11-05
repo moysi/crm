@@ -8,4 +8,7 @@ urlpatterns = [
     path('', views.home, name='dashboard'),
     path('products/', views.products, name='products'),
     path('customers/<str:primk>/', views.customers, name='customers'),
-]
+    path('create_order/', views.createOrder, name='create_order'),
+    path('update_order/<str:ordpk>', views.updateOrder, name='update_order'),
+    path('delete_order/<str:ordpk>', views.deleteOrder, name='delete_order')
+]   
