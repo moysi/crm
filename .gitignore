@@ -1,5 +1,6 @@
 */__pychache__
 *.env
+*.pyc
 venv/
 crm/__pycache__/__init__.cpython-38.pyc
 crm/__pycache__/settings.cpython-38.pyc
@@ -12,3 +13,12 @@ accounts/__pycache__/urls.cpython-38.pyc
 accounts/__pycache__/views.cpython-38.pyc
 accounts/migrations/__pycache__/0006_auto_20201031_0351.cpython-38.pyc
 accounts/migrations/__pycache__/0007_auto_20201031_0352.cpython-38.pyc
+static/images/00100dPORTRAIT__dei9XQG.jpg
+static/images/00100dPORTRAIT__DLIbgIH.jpg
+static/images/00100dPORTRAIT__Ek31HN7.jpg
+static/images/00100dPORTRAIT__iqxNijK.jpg
+static/images/00100dPORTRAIT__pMNQhKr.jpg
+static/images/00100dPORTRAIT_.jpg
+static/images/20160927_193410.jpg
+static/images/aec7aa8abbd49727f0eb0aa1fff1eb4ebc93aec1.jpg
+static/images/defaultpro.png

@@ -9,7 +9,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 
 from .models import *
-from .forms import OrderForm, CreateUserForm
+from .forms import OrderForm, CreateUserForm, CustomerForm
 from .filters import OrderFilter
 from .decorators import *
 
@@ -22,8 +22,9 @@ def registerPage(request):
                 user = form.save()
                 username = form.cleaned_data.get('username')
 
-                group = Group.objects.get(name='customer')
-                user.groups.add(group)
+                #Moved in favor of using signals
+                # group = Group.objects.get(name='customer')
+                # user.groups.add(group)
 
                 messages.success(request, 'Account was created for ' + username)
                 return redirect('/login/')
@@ -95,6 +96,20 @@ def userPage(request):
 
     context = {'orders':orders, 'order_count': total_orders, 'orders_delivered':delivered, 'orders_pending':pending}
     return render(request, 'accounts/user.html', context)   
+
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['customer'])
+def accountSetings(request):
+    customer = request.user.customer
+    form = CustomerForm(instance=customer)
+
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
+        if form.is_valid():
+            form.save()
+
+    context = {'form':form}
+    return render(request, 'accounts/account_settings.html', context)
 
 @login_required(login_url='login')
 def createOrder(request, primk):
