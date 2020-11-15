@@ -90,8 +90,12 @@ WSGI_APPLICATION = 'crm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'demo_1',
+        'USER': 'tjadmin',
+        'PASSWORD': env('DBPASS'),
+        'HOST': 'database-1.cqb7vwckzsn8.us-east-2.rds.amazonaws.com',
+        'POST': 5432
     }
 }
 
@@ -143,3 +147,13 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+#SMTP Configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'tmoyers1@gmail.com'
+EMAIL_HOST_PASSWORD = '***REMOVED***'
+#env('EMAIL_PASSWORD')
