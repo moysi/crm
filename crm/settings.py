@@ -92,7 +92,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'demo_1',
-        'USER': 'tjadmin',
+        'USER': end('DBUSER'),
         'PASSWORD': env('DBPASS'),
         'HOST': 'database-1.cqb7vwckzsn8.us-east-2.rds.amazonaws.com',
         'POST': 5432
