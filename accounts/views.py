@@ -93,6 +93,7 @@ def userPage(request):
     total_orders = orders.count()
     delivered = orders.filter(status='Delivered').count()
     pending = orders.filter(status='Pending').count()
+    print(request.user.is_authenticated)
 
     context = {'orders':orders, 'order_count': total_orders, 'orders_delivered':delivered, 'orders_pending':pending}
     return render(request, 'accounts/user.html', context)   
